@@ -1,37 +1,20 @@
-import { Redirect, Route } from 'react-router-dom';
+import React from 'react';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { Redirect, Route } from 'react-router-dom';
+
 import Home from './pages/Home';
-
-/* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
-
-/* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-
-/* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
-
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
-
-/* Theme variables */
-import './theme/variables.css';
+import Login from './pages/Login';
+import SignUp from "./pages/Signup";
+import Dashboard from './pages/Dashboard';
+import Record from './pages/Record';
+import Library from './pages/Library';
+import Editor from './pages/Editor';
+import Dictionary from './pages/Dictionary';
+import Playlist from './pages/Playlist';
+import Help from './pages/Help';
+import Profile from './pages/Profile';
+import './theme/pages.css';
 
 setupIonicReact();
 
@@ -39,12 +22,18 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/record" component={Record} />
+        <Route exact path="/library" component={Library} />
+        <Route exact path="/editor" component={Editor} />
+        <Route exact path="/dictionary" component={Dictionary} />
+        <Route exact path="/playlist" component={Playlist} />
+        <Route exact path="/help" component={Help} />
+        <Route exact path="/profile" component={Profile} />
+        <Redirect exact from="/" to="/home" />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
